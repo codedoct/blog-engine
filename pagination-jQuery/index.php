@@ -7,6 +7,7 @@
 		display: inline-block;
 	}
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	//paginate
@@ -58,6 +59,7 @@
 	}
 	//end paginate
 </script>
+
 <?php
 	$buah = array(
 		'0' => array(
@@ -101,9 +103,11 @@
 	//paginate 4/page
 	$total_buah = count($buah);
 	$whole = $total_buah/4;
-	if (is_integer($whole)) {
+	if (is_integer($whole) AND $whole!=0) {
 		$floor = floor($whole);
 		$max_page = $floor;
+	} else if ($whole==0) {
+		$max_page = 1;
 	} else {
 		$floor = floor($whole);
 		$max_page = $floor + 1;
